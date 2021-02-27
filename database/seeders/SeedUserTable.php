@@ -35,5 +35,17 @@ class SeedUserTable extends Seeder
             'verification_status' => 1,
             'club_role_id' => 1,
         ]);
+
+        $max_users++;
+
+        DB::table('users')->insert([
+            'name' => "Leo Messi",
+            'mem_id' =>  'CAC-' . (string)$max_users,
+            'email' => 'messi' . (string)$max_users . '@gmail.com',
+            'password' => Hash::make('foo' . (string)$max_users),
+            'active' => 1,
+            'verification_status' => 1,
+            'club_role_id' => 2,
+        ]);
     }
 }
